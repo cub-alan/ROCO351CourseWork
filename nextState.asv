@@ -1,0 +1,11 @@
+function nextState = TransitionFunction(state,action){
+
+north = 1;
+east = 2;
+south = 3;
+west = 4;
+
+tm()
+
+
+}

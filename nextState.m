@@ -1,9 +1,11 @@
-function nextState = TransitionFunction(state,action){
+function next_state = nextState(state,action)
 
 north = 1;
 east = 2;
 south = 3;
 west = 4;
+
+tm = zeros(11,4);
 
 tm(1,north) = 4;
 tm(1,east) = 1;
@@ -20,45 +22,46 @@ tm(3,east) = 3;
 tm(3,south) = 3;
 tm(3,west) = 3;
 
-tm(4,north) = ;
-tm(4,east) = ;
-tm(4,south) = ;
-tm(4,west) = ;
+tm(4,north) = 7;
+tm(4,east) = 8;
+tm(4,south) = 1;
+tm(4,west) = 4;
 
-tm(5,north) = ;
-tm(5,east) = ;
-tm(5,south) = ;
-tm(5,west) = ;
+tm(5,north) = 9;
+tm(5,east) = 5;
+tm(5,south) = 2;
+tm(5,west) = 5;
 
-tm(6,north) = ;
-tm(6,east) = ;
-tm(6,south) = ;
-tm(6,west) = ;
+tm(6,north) = 11;
+tm(6,east) = 6;
+tm(6,south) = 3;
+tm(6,west) = 6;
 
-tm(7,north) = ;
-tm(7,east) = ;
-tm(7,south) = ;
-tm(7,west) = ;
+tm(7,north) = 7;
+tm(7,east) = 8;
+tm(7,south) = 4;
+tm(7,west) = 7;
 
-tm(8,north) = ;
-tm(8,east) = ;
-tm(8,south) = ;
-tm(8,west) = ;
+tm(8,north) = 8;
+tm(8,east) = 9;
+tm(8,south) = 8;
+tm(8,west) = 7;
 
-tm(9,north) = ;
-tm(9,east) = ;
-tm(9,south) = ;
-tm(9,west) = ;
+tm(9,north) = 9;
+tm(9,east) = 10;
+tm(9,south) = 5;
+tm(9,west) = 8;
 
-tm(10,north) = ;
-tm(10,east) = ;
-tm(10,south) = ;
-tm(10,west) = ;
+tm(10,north) = 10;
+tm(10,east) = 11;
+tm(10,south) = 10;
+tm(10,west) = 9;
 
-tm(11,north) = ;
-tm(11,east) = ;
-tm(11,south) = ;
-tm(11,west) = ;
+tm(11,north) = 11;
+tm(11,east) = 11;
+tm(11,south) = 6;
+tm(11,west) = 10;
 
+next_state = tm(state, action);
 
-}
+end

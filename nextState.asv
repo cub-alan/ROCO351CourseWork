@@ -1,10 +1,15 @@
-function nextState = TransitionFunction(state,action){
+function next_state = nextState(state,action)
 
+
+% set the value for the directions
 north = 1;
 east = 2;
 south = 3;
 west = 4;
 
+tm = zeros(11,4);% create a matrix of 11x4 
+
+% set the matrix to give where the ai would move given the start position 
 tm(1,north) = 4;
 tm(1,east) = 1;
 tm(1,south) = 1;
@@ -60,5 +65,6 @@ tm(11,east) = 11;
 tm(11,south) = 6;
 tm(11,west) = 10;
 
+next_state = tm(state, action); % set the function
 
-}
+end

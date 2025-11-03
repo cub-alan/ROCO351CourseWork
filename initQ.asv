@@ -1,0 +1,14 @@
+function QTable = initQ()
+
+QTable = 0.01 + 0.09*rand(11,4); % create an 11x4 matrix of random numbers between 0.1 and 0.01
+
+figure
+surf(QTable);
+xlabel('Action','m');
+ylabel('Q Value','m');
+zlabel('state','m');
+title('ROCO351 ISH: Q Function Table Values');
+grid on;
+colorbar;
+
+end

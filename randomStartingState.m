@@ -1,9 +1,8 @@
-function start_possition = randomStartingState()
+function state = randomStartingState()
 
-states = [1,3,4,5,6,7,8,9,10,11]; % create an array of possible states excluding 2 (the final state)
+state = randi(1,11); % create a random integer between 1 and 11
 
-randomState = randi(length(states)); % select one of the states at random with equal probability
-
-start_possition = states(randomState); %set the function to the random state
-
+while state == 2 % check if the state is 2
+    state = randi(1,11); % while the state is 2 create a new random state
+end
 end

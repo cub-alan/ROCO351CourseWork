@@ -1,9 +1,0 @@
-function start_possition = randomStartingState()
-
-states = [1,3,4,5,6,7,8,9,10,11]; % create an array of possible states excluding 2 (the final state)
-
-randomState = randi(length(states));
-
-start_possition = states(randomState);
-
-end

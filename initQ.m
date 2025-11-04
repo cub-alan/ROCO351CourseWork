@@ -11,7 +11,8 @@ title('ROCO351 ISH: Q Function Table Values'); % create a title for the figure
 grid on; % turn the grid on
 
 zlim([0 1]); % set the bounds of z axis to between 0 and 1
-zticks([0:0.2:1]); %set the z axis to go up in 0.2 increments 
+zticks(0:0.2:1); %set the z axis to go up in 0.2 increments 
 colorbar; % create a colour bar to show size of the point as a colour coded scale
+colormap summer;
 
 end

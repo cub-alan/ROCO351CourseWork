@@ -1,9 +1,9 @@
-function QTable = initQ()
+function qtable = initQ()
 
-QTable = 0.01 + 0.09*rand(4,11); % create an 11x4 matrix of random numbers between 0.1 and 0.01
+qtable = 0.01 + 0.09*rand(4,11); % create an 11x4 matrix of random numbers between 0.1 and 0.01
 
 figure; % create a new figure
-surf(QTable); % creates a surface plot of the values in the Q table
+surf(qtable); % creates a surface plot of the values in the Q table
 xlabel('State'); % create a label for x axis
 ylabel('Action'); % create a label for y axis
 zlabel('Q Value'); % create a label for z axis

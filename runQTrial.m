@@ -2,7 +2,7 @@ function steps = runQTrial()
 
 % import the required previously writen files needed to make this run
 import runEpisode.*
-improt initQ.*
+import initQ.*
 
 episode = 0; % set the episode number to 0
 steps = zeros(1,100); % create a zeros matrix form 1 to 100 for storing the steps
@@ -15,15 +15,5 @@ while episode < 100 % while less then 100 episodes have run keep looping the epi
     steps(episode) = CurrentStepCount; % set the current episodes step count into the step matrix
 
 end
-
-figure; % create a new figure
-x(1:1,100); % set the x axis scale to be between 1 and 100 going up in steps of 1 
-plot(x,steps); % plot the steps to their assosiated episode number
-
-% lables the graph and put the graphs grid on 
-xlable("episode number");
-ylable("number of steps until the episode completed")
-title("TASK 8: runQTrial")
-grid on;
 
 end

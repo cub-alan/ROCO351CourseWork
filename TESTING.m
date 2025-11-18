@@ -1,17 +1,18 @@
 import randomStartingState.*
+import update.*
+import initQ.*
+import reward.*
+import epsilonGreedyAction.*
+import nextState.*
+import runEpisode.*
+import runQTrial.*
 
-x = 100000;
+qtable = initQ()
+state = randomStartingState();
+action = epsilonGreedyAction(qtable, state);
+next_state = nextState(state, action);
+rewardValue = reward(state, action);
 
-samples = zeros(0,x);
+newQ = update(qtable,state,action,next_state,rewardValue)
 
-for i = 1:x
-    samples(i) = randomStartingState();
-end
-
-figure;
-histogram(samples);
-xlabel('State');
-ylabel('Frequency');
-title('random starting state values over 100000 cycles');
-grid on;
 

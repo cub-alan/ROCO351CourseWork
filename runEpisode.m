@@ -15,8 +15,8 @@ while (state~=2) % if the state isnt the goal state loop the following states
     steps = steps+1; % add one to the counter
     action = epsilonGreedyAction(qtable,state); % get the action using the epsilon gready function
     next_state = nextState(state,action); % find the next state given the current state and action
-    reward = reward(state,action); % set the reward value for the current state and action
-    qtable = update(qtable,state,action,next_state,reward); % update the qtable to add preference to the prefered outcome or reduces prefrence if it was a bad outcome
+    rewardValue = reward(state,action); % set the reward value for the current state and action
+    qtable = update(qtable,state,action,next_state,rewardValue); % update the qtable to add preference to the prefered outcome or reduces prefrence if it was a bad outcome
     state = next_state; % set the new current state
 
 end

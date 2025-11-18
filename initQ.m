@@ -1,6 +1,6 @@
 function qtable = initQ()
 
-qtable = 0.01 + 0.09*rand(4,11); % create an 11x4 matrix of random numbers between 0.1 and 0.01
+qtable = 0.01 + 0.09*rand(11,4); % create an 11x4 matrix of random numbers between 0.1 and 0.01
 
 figure; % create a new figure
 surf(qtable); % creates a surface plot of the values in the Q table

@@ -1,0 +1,39 @@
+function [qtable,model_reward,model_nextstate,visited] = updateDynaQModel(state,action,next_state,rewardValue,n)
+
+import runQTrial.*
+
+qtable = initQ(); % in
+
+qtable(state,action) = qtable(state,action) + LearningRate*(reward+TemporalDiscountRate*max(qtable(next_state,:))-qtable(state,action));
+
+
+model_reward(state,action) = rewardValue; % this will store what the reward given was for a specific state and action
+model_nextstate(state,action) = next_state; % this will store where the program ended up given a specific state and action so it can call back on it later
+visited(state,action) = 1; % sets any previously seen state and action combo to 1 so that the program knows that it wont need to store the information again
+
+for i = 1:n
+    visited_check = 0;
+
+    while visited_check == 0
+        RandState = randi(11,1);
+        RandAction = randi(4,1);
+        visited_check = visited(RandState,RandAction) == 1;
+    end
+    ModelReward = model_reward(RandState,RandAction);
+    ModelNextState = model_nextstate(RandState,RandAction);
+    qtable(RandomState,RandomAction) = qtable(RandomState,RandomAction) + LearningRate*(ModelReward+TemporalDiscountRate*max(qtable(ModelNextState,:))-qtable(RandomState,RandomAction));
+end
+state = randomStartingState(); % generate a random begining state for the program
+
+while state ~= 2 % loop the code while the state isnt terminal
+
+    action = epsilonGreedyAction(state,qtable);
+    next_state = nextState(state,action);
+    rewardValue = GetReward(state,action);
+    qtable = update(qtable,state,action,next_state,rewardValue);
+    state = next_state;
+
+
+end
+
+end

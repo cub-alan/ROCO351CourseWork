@@ -16,12 +16,10 @@ while (state~=2) % if the state isnt the goal state loop the following states
     rewardValue = reward(state,action); % set the reward value for the current state and action
     qtable = update(qtable,state,action,next_state,rewardValue); % update the qtable to add preference to the prefered outcome or reduces prefrence if it was a bad outcome
     
-    model_reward(state,action) = rewardValue; 
-    model_nextstate(state,action) = next_state;
-    visited(state,action) = 1;
     
-    qtable = updateDynaQModel(qtable,model_reward,model_nextstate,visited,state,action,next_state,rewardValue,n);
-
+    
+    
+    
     state = next_state; % set the new current state
 
 end

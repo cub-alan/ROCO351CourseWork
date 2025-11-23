@@ -3,7 +3,7 @@ function [qtable,model_reward,model_nextstate,visited,steps] = runDynaQEpisode(q
 import runQTrial.*
 import runDynaQModel.*
 
-n = 10;
+n = 10; %desired num of DynaQ loops
 steps = 0;
 
 state = randomStartingState(); % set the state to the randomly generated starting state
@@ -16,10 +16,13 @@ while (state~=2) % if the state isnt the goal state loop the following states
     rewardValue = reward(state,action); % set the reward value for the current state and action
     qtable = update(qtable,state,action,next_state,rewardValue); % update the qtable to add preference to the prefered outcome or reduces prefrence if it was a bad outcome
     
+    % set up the model for the DynaQ
+    model_reward(state,action) = rewardValue; 
+    model_nextstate(state,action) = next_state;
+    visited(state,action) = 1;
     
-    
-    
-    
+    qtable = updateDynaQModel(qtable,model_reward,model_nextstate,visited,state,action,next_state,rewardValue,n);% do the DnaQ update n amount of times
+
     state = next_state; % set the new current state
 
 end

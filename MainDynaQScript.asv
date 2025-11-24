@@ -3,9 +3,7 @@ import initQ.*
 
 qtable = initQ();
 
-model_reward =zeros(1,[11,4]);
-model_nextstate = zeros (1,[11,4]);
-visited = zeros(1,[11,4]);
+model_reward =
 
 [steps,qtable,model_reward,model_nextstate,visited] = runDynaQTrial(qtable,model_reward,model_nextstate,visited);
 

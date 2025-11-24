@@ -9,8 +9,9 @@ steps = 0;
 state = randomStartingState(); % set the state to the randomly generated starting state
 
 while (state~=2) % if the state isnt the goal state loop the following states 
+    
+    steps = steps+1;
 
-    steps = steps+1; % add one to the counter
     action = epsilonGreedyAction(qtable,state); % get the action using the epsilon gready function
     next_state = nextState(state,action); % find the next state given the current state and action
     rewardValue = reward(state,action); % set the reward value for the current state and action

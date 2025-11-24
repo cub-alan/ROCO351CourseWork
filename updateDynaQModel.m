@@ -23,13 +23,13 @@ while state ~= 2 % loop the code while the state isnt terminal
     state = next_state; % set the currunt state to the state the program just moved to
 
 for i = 1:n % for all values of i from 1 to input int n
-    PrevioslyObserved = 0; % check to determine if something has already been done
+    PreviouslyObserved = 0; % check to determine if something has already been done
 
-    while PrevioslyObserved == 0 % loop the following if the specific action and state hasnt been seen previously
+    while PreviouslyObserved == 0 % loop the following if the specific action and state hasnt been seen previously
        
         RandState = randi(11); % create a random integer state between 11 and 1
         RandAction = randi(4); % create a random integer action between 4 and 1
-        PrevioslyObserved = (visited(RandState,RandAction) == 1); % set the Previously seen int to if the visited model returns a one for that state action pair
+        PreviouslyObserved = (visited(RandState,RandAction) == 1); % set the Previously seen int to if the visited model returns a one for that state action pair
    
     end
 
@@ -37,7 +37,5 @@ for i = 1:n % for all values of i from 1 to input int n
     ModelNextState = model_nextstate(RandState,RandAction); % find the outcome of the random new state action pair
     qtable(RandState,RandAction) = qtable(RandState,RandAction) + LearningRate*(ModelReward+TemporalDiscountRate*max(qtable(ModelNextState,:))-qtable(RandState,RandAction)); %update the qtable using the models
 end
-
 end
-
 end

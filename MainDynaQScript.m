@@ -1,13 +1,17 @@
 import runDynaQTrial.*
 import initQ.*
 
-qtable = initQ();
+[steps,qtable,model_reward,model_nextstate,visited] = runDynaQTrial();
 
-model_reward =zeros(1,[11,4]);
-model_nextstate = zeros (1,[11,4]);
-visited = zeros(1,[11,4]);
+figure; % create a new figure
+x = (1:1:100); % set the x axis scale to be between 1 and 100 going up in steps of 1 
+plot(x,steps); % plot the steps to their assosiated episode number
 
-[steps,qtable,model_reward,model_nextstate,visited] = runDynaQTrial(qtable,model_reward,model_nextstate,visited);
+% lables the graph and put the graphs grid on 
+xlabel("episode number");
+ylabel("number of steps until the episode completed")
+title("TASK 8: runQTrial")
+grid on;
 
 figure;
 surf(qtable);

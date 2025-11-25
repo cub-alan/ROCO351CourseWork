@@ -6,6 +6,12 @@ import runDynaQModel.*
 n = 10; %desired num of DynaQ loops
 steps = 0;
 
+%for testing
+%qtable = initQ();
+%model_reward =zeros(11,4);
+%model_nextstate = zeros (11,4);
+%visited = zeros(11,4);
+
 state = randomStartingState(); % set the state to the randomly generated starting state
 
 while (state~=2) % if the state isnt the goal state loop the following states 
@@ -22,9 +28,16 @@ while (state~=2) % if the state isnt the goal state loop the following states
     model_nextstate(state,action) = next_state;
     visited(state,action) = 1;
     
-    qtable = updateDynaQModel(qtable,model_reward,model_nextstate,visited,state,action,next_state,rewardValue,n);% do the DnaQ update n amount of times
+    qtable = updateDynaQModel(qtable,model_reward,model_nextstate,visited,n);% do the DnaQ update n amount of times
 
     state = next_state; % set the new current state
 
 end
+
+%testing models and qtable
+%disp(qtable);
+%disp(model_nextstate);
+%disp(model_reward);
+%disp(visited);
+
 end

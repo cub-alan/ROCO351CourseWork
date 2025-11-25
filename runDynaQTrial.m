@@ -1,4 +1,4 @@
-function qtable = runDynaQTrial()
+function [qtable,steps] = runDynaQTrial()
 
 import runDynaQEpisode.*
 

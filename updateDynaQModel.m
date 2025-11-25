@@ -1,4 +1,4 @@
-function [qtable,model_reward,model_nextstate,visited] = updateDynaQModel(qtable,model_reward,model_nextstate,visited,n)
+function qtable = updateDynaQModel(qtable,model_reward,model_nextstate,visited,n)
 
 LearningRate = 0.2; % set the learning rate (alpha) to the desired amount of 0.2
 TemporalDiscountRate = 0.9;% set the Temporal Discount Rate (gamma) to the desired amount of 0.9

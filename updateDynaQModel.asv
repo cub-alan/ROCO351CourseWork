@@ -1,4 +1,7 @@
-function [qtable,model_reward,model_nextstate,visited] = updateDynaQModel(qtable,model_reward,model_nextstate,visited,n)
+function [qtable = updateDynaQModel(qtable,model_reward,model_nextstate,visited,n)
+
+LearningRate = 0.2; % set the learning rate (alpha) to the desired amount of 0.2
+TemporalDiscountRate = 0.9;% set the Temporal Discount Rate (gamma) to the desired amount of 0.9
 
 for i = 1:n % for all values of i from 1 to input int n
     PreviouslyObserved = 0; % check to determine if something has already been done

@@ -26,7 +26,7 @@ tm(3,south) = 3;
 tm(3,west) = 3;
 
 tm(4,north) = 7;
-tm(4,east) = 8;
+tm(4,east) = 4;
 tm(4,south) = 1;
 tm(4,west) = 4;
 

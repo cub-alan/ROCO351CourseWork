@@ -1,4 +1,4 @@
-function [qtable,model_reward,model_nextstate,visited,steps] = runDynaQEpisode(qtable,model_reward,model_nextstate,visited)
+function [qtable,model_reward,model_nextstate,visited,steps] = runDynaQEpisode()%qtable,model_reward,model_nextstate,visited
 
 import runQTrial.*
 import runDynaQModel.*
@@ -7,10 +7,10 @@ n = 10; %desired num of DynaQ loops
 steps = 0;
 
 %for testing
-%qtable = initQ();
-%model_reward =zeros(11,4);
-%model_nextstate = zeros (11,4);
-%visited = zeros(11,4);
+qtable = initQ();
+model_reward =zeros(11,4);
+model_nextstate = zeros (11,4);
+visited = zeros(11,4);
 
 state = randomStartingState(); % set the state to the randomly generated starting state
 
@@ -35,9 +35,9 @@ while (state~=2) % if the state isnt the goal state loop the following states
 end
 
 %testing models and qtable
-%disp(qtable);
-%disp(model_nextstate);
-%disp(model_reward);
-%disp(visited);
+disp(qtable);
+disp(model_nextstate);
+disp(model_reward);
+disp(visited);
 
 end
